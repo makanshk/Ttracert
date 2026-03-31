@@ -1,0 +1,68 @@
+﻿<ui:FluentWindow x:Class="Ttracert.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:mapsui="clr-namespace:Mapsui.UI.Wpf;assembly=Mapsui.UI.Wpf"
+        Height="600" Width="800" MinHeight="600" MinWidth="800"
+        ExtendsContentIntoTitleBar="True"
+        WindowCornerPreference="Round"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ui:TitleBar
+    Title="Ttracert - 2026"
+    Grid.ColumnSpan="2"
+    VerticalAlignment="Top"
+    Icon="{ui:SymbolIcon Globe24}"
+    Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+    Panel.ZIndex="1" />
+
+        <Border Background="{ui:ThemeResource ApplicationBackgroundBrush}" 
+                BorderBrush="{ui:ThemeResource ControlElevationBorderBrush}" 
+                BorderThickness="0,0,1,0"
+                Grid.Column="0">
+            <StackPanel Margin="15,45,15,15">
+                <TextBlock Text="Визуальный Трассировщик" 
+                           FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                <ui:TextBox x:Name="TargetBox" 
+                            PlaceholderText="Введите IP или домен"
+                            Icon="{ui:SymbolIcon Globe24}"
+                            Margin="0,0,0,10"/>
+
+                <ui:Button x:Name="StartButton" 
+                           Content="Запустить трассировку" 
+                           Appearance="Primary" 
+                           Icon="{ui:SymbolIcon Play24}"
+                           HorizontalAlignment="Stretch"
+                           Click="StartButton_Click"/>
+
+                <ui:ProgressRing x:Name="LoadingRing" IsIndeterminate="True" 
+                                 Visibility="Collapsed" Margin="0,20,0,0"/>
+
+                <ui:ListView x:Name="HopsList" 
+             Margin="0,20,0,0" 
+             Height="350"
+             SelectionChanged="HopsList_SelectionChanged">
+                    <ui:ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="5">
+                                <TextBlock Text="{Binding HopNumber, StringFormat='Узел {0}'}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding IpAddress}" Foreground="Gray"/>
+                                <TextBlock Text="{Binding Location}" FontSize="10"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ui:ListView.ItemTemplate>
+                </ui:ListView>
+            </StackPanel>
+        </Border>
+
+        <mapsui:MapControl x:Name="MapControl" Grid.Column="1" />
+
+    </Grid>
+</ui:FluentWindow>

@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "dgSpecHash": "0xwUC4ce2CY=",
+  "success": true,
+  "projectFilePath": "D:\\IT\\Projects\\Ttracert\\Ttracert\\Ttracert.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\makaronka\\.nuget\\packages\\brutile\\6.0.0\\brutile.6.0.0.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\excss\\4.3.1\\excss.4.3.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\harfbuzzsharp\\8.3.1.2\\harfbuzzsharp.8.3.1.2.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\2.8.2.3\\harfbuzzsharp.nativeassets.linux.2.8.2.3.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\8.3.1.2\\harfbuzzsharp.nativeassets.macos.8.3.1.2.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\8.3.1.2\\harfbuzzsharp.nativeassets.win32.8.3.1.2.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\mapsui\\5.0.2\\mapsui.5.0.2.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\mapsui.nts\\5.0.2\\mapsui.nts.5.0.2.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\mapsui.rendering.skia\\5.0.2\\mapsui.rendering.skia.5.0.2.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\mapsui.tiling\\5.0.2\\mapsui.tiling.5.0.2.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\mapsui.wpf\\5.0.2\\mapsui.wpf.5.0.2.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\nettopologysuite\\2.6.0\\nettopologysuite.2.6.0.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\nettopologysuite.features\\2.1.0\\nettopologysuite.features.2.1.0.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\nettopologysuite.io.geojson4stj\\4.0.0\\nettopologysuite.io.geojson4stj.4.0.0.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\opentk\\3.3.1\\opentk.3.3.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\opentk.glwpfcontrol\\3.3.0\\opentk.glwpfcontrol.3.3.0.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\shimskiasharp\\3.2.1\\shimskiasharp.3.2.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\skiasharp\\3.119.1\\skiasharp.3.119.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\skiasharp.harfbuzz\\3.119.1\\skiasharp.harfbuzz.3.119.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\skiasharp.nativeassets.linux\\3.119.1\\skiasharp.nativeassets.linux.3.119.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\skiasharp.nativeassets.macos\\3.119.1\\skiasharp.nativeassets.macos.3.119.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\skiasharp.nativeassets.win32\\3.119.1\\skiasharp.nativeassets.win32.3.119.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\skiasharp.views.desktop.common\\3.119.1\\skiasharp.views.desktop.common.3.119.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\skiasharp.views.wpf\\3.119.1\\skiasharp.views.wpf.3.119.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\svg.custom\\3.2.1\\svg.custom.3.2.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\svg.model\\3.2.1\\svg.model.3.2.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\svg.skia\\3.2.1\\svg.skia.3.2.1.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\topten.richtextkit\\0.4.167\\topten.richtextkit.0.4.167.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\wpf-ui\\4.2.0\\wpf-ui.4.2.0.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\wpf-ui.abstractions\\4.2.0\\wpf-ui.abstractions.4.2.0.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.4\\microsoft.netcore.app.runtime.win-x64.10.0.4.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.4\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.4.nupkg.sha512",
+    "C:\\Users\\makaronka\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.4\\microsoft.aspnetcore.app.runtime.win-x64.10.0.4.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Пакет \"OpenTK 3.3.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net10.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "projectPath": "D:\\IT\\Projects\\Ttracert\\Ttracert\\Ttracert.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\IT\\Projects\\Ttracert\\Ttracert\\Ttracert.csproj",
+      "libraryId": "OpenTK",
+      "targetGraphs": [
+        "net10.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Пакет \"OpenTK.GLWpfControl 3.3.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net10.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "projectPath": "D:\\IT\\Projects\\Ttracert\\Ttracert\\Ttracert.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\IT\\Projects\\Ttracert\\Ttracert\\Ttracert.csproj",
+      "libraryId": "OpenTK.GLWpfControl",
+      "targetGraphs": [
+        "net10.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Пакет \"SkiaSharp.Views.WPF 3.119.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net10.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "projectPath": "D:\\IT\\Projects\\Ttracert\\Ttracert\\Ttracert.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\IT\\Projects\\Ttracert\\Ttracert\\Ttracert.csproj",
+      "libraryId": "SkiaSharp.Views.WPF",
+      "targetGraphs": [
+        "net10.0-windows7.0"
+      ]
+    }
+  ]
+}
