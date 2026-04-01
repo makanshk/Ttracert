@@ -145,17 +145,29 @@ namespace Ttracert
         private async Task RunTraceroute(string host)
         {
             const int maxHops = 30;
-            const int timeout = 1500;
+            const int timeout = 2000;
             byte[] buffer = Encoding.ASCII.GetBytes("ping");
             using var ping = new Ping();
+
+            // Список для хранения всех найденных координат, чтобы перерисовывать путь корректно
+            var hopDataMap = new SortedDictionary<int, MPoint>();
 
             for (int ttl = 1; ttl <= maxHops; ttl++)
             {
                 var options = new PingOptions(ttl, true);
+                var watch = System.Diagnostics.Stopwatch.StartNew(); // Замеряем время
+
                 try
                 {
                     var reply = await ping.SendPingAsync(host, timeout, buffer, options);
-                    var hop = new HopInfo { HopNumber = ttl, IpAddress = reply.Address?.ToString() ?? "*" };
+                    watch.Stop();
+
+                    var hop = new HopInfo
+                    {
+                        HopNumber = ttl,
+                        IpAddress = reply.Address?.ToString() ?? "*",
+                        ResponseTime = reply.Status == IPStatus.Success || reply.Status == IPStatus.TtlExpired ? watch.ElapsedMilliseconds : 0
+                    };
 
                     if (reply.Status == IPStatus.TtlExpired || reply.Status == IPStatus.Success)
                     {
@@ -166,15 +178,54 @@ namespace Ttracert
                             hop.Latitude = geo.lat;
                             hop.Longitude = geo.lon;
 
-                            await AddStepToMapAsync(hop.Latitude, hop.Longitude, hop.IpAddress);
+                            // Добавляем координаты в словарь для построения последовательной линии
+                            var (x, y) = SphericalMercator.FromLonLat(geo.lon, geo.lat);
+                            hopDataMap[ttl] = new MPoint(x, y);
+
+                            // Обновляем карту, передавая актуальный список точек в правильном порядке
+                            await UpdateRouteOnMapAsync(hopDataMap.Values.ToList());
                         }
                     }
 
                     _hops.Add(hop);
                     if (reply.Status == IPStatus.Success) break;
                 }
-                catch { _hops.Add(new HopInfo { HopNumber = ttl, IpAddress = "*" }); }
+                catch
+                {
+                    _hops.Add(new HopInfo { HopNumber = ttl, IpAddress = "Request Timed Out" });
+                }
             }
+        }
+
+        // Новый метод для точной отрисовки последовательности
+        private async Task UpdateRouteOnMapAsync(List<MPoint> orderedPoints)
+        {
+            await Dispatcher.InvokeAsync(() =>
+            {
+                _pointFeatures.Clear();
+                _lineFeatures.Clear();
+
+                // 1. Отрисовка всех точек
+                foreach (var point in orderedPoints)
+                {
+                    var feature = new PointFeature(point);
+                    _pointFeatures.Add(feature);
+                }
+                _pointsLayer.Features = _pointFeatures;
+
+                // 2. Отрисовка линии строго по порядку
+                if (orderedPoints.Count > 1)
+                {
+                    var coords = orderedPoints.Select(p => new Coordinate(p.X, p.Y)).ToArray();
+                    var lineString = new LineString(coords);
+                    _lineFeatures.Add(new GeometryFeature { Geometry = lineString });
+                    _lineLayer.Features = _lineFeatures;
+                }
+
+                _pointsLayer.DataHasChanged();
+                _lineLayer.DataHasChanged();
+                MapControl.Refresh();
+            });
         }
 
         private async Task<IpGeoResponse?> GetLocation(string ip)
@@ -291,9 +342,10 @@ namespace Ttracert
     public class HopInfo
     {
         public int HopNumber { get; set; }
-        public string IpAddress { get; set; }
+        public string IpAddress { get; set; } = "";
         public string Location { get; set; } = "---";
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public long ResponseTime { get; set; } // ⏱️ Время в мс
     }
 }

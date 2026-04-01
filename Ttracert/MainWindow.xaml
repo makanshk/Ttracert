@@ -51,11 +51,26 @@
              SelectionChanged="HopsList_SelectionChanged">
                     <ui:ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical" Margin="5">
-                                <TextBlock Text="{Binding HopNumber, StringFormat='Узел {0}'}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding IpAddress}" Foreground="Gray"/>
-                                <TextBlock Text="{Binding Location}" FontSize="10"/>
-                            </StackPanel>
+                            <Grid Margin="5,5,15,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding HopNumber}" FontWeight="Bold" Margin="0,0,10,0"/>
+
+                                <StackPanel Grid.Column="1" Orientation="Vertical">
+                                    <TextBlock Text="{Binding IpAddress}" FontWeight="Medium"/>
+                                    <TextBlock Text="{Binding Location}" FontSize="10" Foreground="Gray"/>
+                                </StackPanel>
+
+                                <TextBlock Grid.Column="2" 
+                       Text="{Binding ResponseTime, StringFormat='{}{0} ms'}" 
+                       VerticalAlignment="Center" 
+                       Foreground="#3498db" 
+                       FontWeight="Bold"/>
+                            </Grid>
                         </DataTemplate>
                     </ui:ListView.ItemTemplate>
                 </ui:ListView>

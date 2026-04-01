@@ -70,3 +70,4 @@ D:\IT\Projects\Ttracert\Ttracert\obj\Debug\net10.0-windows\ref\Ttracert.dll
 D:\IT\Projects\Ttracert\Ttracert\obj\Debug\net10.0-windows\Ttracert_MarkupCompile.lref
 D:\IT\Projects\Ttracert\Ttracert\obj\Debug\net10.0-windows\App.baml
 D:\IT\Projects\Ttracert\Ttracert\obj\Debug\net10.0-windows\Ttracert_Content.g.cs
+D:\IT\Projects\Ttracert\Ttracert\obj\Debug\net10.0-windows\Ttracert.sourcelink.json
